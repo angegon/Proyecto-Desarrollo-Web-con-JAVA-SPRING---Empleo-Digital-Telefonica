@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Consultar Cursos</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel header="Consultar Cursos">
+                <h:link outcome="ResultadoCursosActivos.xhtml"> Ver cursos activos</h:link><br/><br/>                
+                <h:outputText value="Búsqueda de cursos  " />
+                <p:inputText required="true" label="keywords" value="#{buscarCursos.curso}"/>                                           
+                <h:commandButton value="Buscar" action="#{buscarCursos.obtenerCursos()}" style="background-color: #D20000; border-radius: 5px; color: #FFFFFF;display: inline-block;font-weight: bold; padding: 8px 22px; font-size: 0.9em; letter-spacing: 1px; text-decoration: none; text-transform: uppercase"/><br/>                   
+            </p:panel>            
+        </h:form>
+    </h:body>
+</html>
+

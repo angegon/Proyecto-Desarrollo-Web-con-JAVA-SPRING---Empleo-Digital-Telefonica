@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Alta Nuevo Curso</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form prependId="false" enctype="multipart/form-data">
+                <p:panel header="Alta nuevo curso">
+                    <h:panelGrid columns="2" columnClasses="label, value" style="width: 30%;">
+                        <h:outputText value="Id del curso:" />
+                        <p:inputText id="idCurso" value="#{registrarNuevoCuso.idCurso}" required="true" />
+                        <h:outputText value="Nombre:" />
+                        <p:inputText value="#{registrarNuevoCuso.nombre}" required="true" />
+                        <h:outputText value="Descripción:" />
+                        <p:inputText  value="#{registrarNuevoCuso.descripcion}" required="true" />
+                        <h:outputText value="Documentación:" />
+                        <h:inputFile value="#{registrarNuevoCuso.file1}"></h:inputFile>    
+                    </h:panelGrid>
+                    <h:commandButton value="Alta Nuevo Curso" action="#{registrarNuevoCuso.registrarCurso()}" onclick="validarNuevoCurso()" style="background-color: #D20000; border-radius: 5px; color: #FFFFFF;display: inline-block;font-weight: bold; padding: 8px 22px; font-size: 0.9em; letter-spacing: 1px; text-decoration: none; text-transform: uppercase"/>
+                </p:panel>
+            </h:form> 
+        </ui:composition>        
+    </h:body>
+</html>

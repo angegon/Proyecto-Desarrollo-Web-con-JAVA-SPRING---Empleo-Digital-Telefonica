@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Alta Nuevo Curso</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form>
+                <p:panel header="Ficha de cursos" >
+                    <p:panelGrid columns="2"  >
+                        <h:outputText value="Nombre: " />
+                        <h:outputText value="#{misCursos.curso.idedicion.idcurso.nombre}"/>
+                        <h:outputText value="Descripción: " />
+                        <h:outputText value="#{misCursos.curso.idedicion.idcurso.descripcion}"/>
+                        <h:outputText value="Edición:" />
+                        <h:outputText value="#{misCursos.curso.idedicion.idcursoedicion}"/>                    
+                        <h:outputText value="Fecha de inicio: "/>
+                        <h:outputText value="#{misCursos.curso.idedicion.fechainicio}"/>
+                        <h:outputText value="Fecha de fin: "/>
+                        <h:outputText value="#{misCursos.curso.idedicion.fechafin}"/>
+                        <h:outputText value="Profesor: " />
+                        <h:outputText value="#{misCursos.curso.idedicion.idprofesor.nombre}"/>
+                    </p:panelGrid>
+                    <a href="#{misCursos.curso.idedicion.idcurso.contenido}" target="_blank">Pinche para verlo en otra página</a> <br />   
+                    <object type="application/pdf" data="#{misCursos.curso.idedicion.idcurso.contenido}" height="700px" width="100%" internalinstanceid="3">
+                        Tu navegador no puede visualizar archivos pdf, <a href="#{misCursos.curso.idedicion.idcurso.contenido}">pinche aquí </a> para descargarlo.
+                    </object>
+                </p:panel>
+            </h:form>
+        </ui:composition>
+    </h:body>
+</html>

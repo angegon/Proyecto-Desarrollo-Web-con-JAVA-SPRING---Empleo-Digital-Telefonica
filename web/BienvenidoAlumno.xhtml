@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">     
+    <h:head>
+        <title>Bienvenida</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h3><h:outputText value="Bienvenido "></h:outputText><h:outputText id="nombre" value="#{obtenerDatosSesion.us.nombre}"></h:outputText></h3>
+
+            <div id="templatemo_middle">
+                <div id="mid_left">
+                    <img src="resources/img/bienvenida.png" alt="bienvenida" />
+                </div>
+                <div id="mid_right">                    
+                    <p><b>Talentic</b> es tu portal de formación en nuevas tecnologías, una herramienta 
+                        donde podras aprender, informarte, consultar y compartir tu experiencia en el mundo digital. A lo largo de tu itinerario formativo contaras con la ayuda de los mejores profesores para convertirte en todo un experto digital.</p>
+                    <p><b>¡Comienza ya!</b></p>
+                </div>
+            </div>  
+
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <b>Mis Cursos</b>
+                    </div>
+                    <div class="panel-body">
+                        <p> En la pestaña "Mis Cursos" tendras acceso a todos los contenidos de tu curso, fechas de entrega, exámenes y toda la información relativa a tus profesores. ¿A qué esperas para empezar?</p>
+                    </div>
+                    <div class="panel-footer">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <b>Tus Exámenes</b>
+                    </div>
+                    <div class="panel-body">
+                        <p> Una vez realizado el curso podrás acceder a tus exámenes y poner a prueba todos tus conocimientos para completar tu formación y estar un paso más cerca de ser todo un experto en el mundo digital.</p>
+                    </div>
+                    <div class="panel-footer">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <b>Contactar al profesor</b>
+                    </div>
+                    <div class="panel-body">
+                        <p>Si tienes alguna duda o pregunta acerca del temario del curso, examenes, fechas o funcionamiento de la plataforma no duedes en ponerte en contacto con tus profesores. Estamos aquí para ayudarte, ¡Aclara todas tus dudas!</p>
+                    </div>
+                    <div class="panel-footer">
+                    </div>
+                </div>
+            </div>
+        </ui:composition>
+    </h:body>
+</html>

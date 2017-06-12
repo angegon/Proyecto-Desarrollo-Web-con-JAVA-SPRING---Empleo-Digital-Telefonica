@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+          http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+">
+    <bean id="data"
+             class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName"
+                          value="com.mysql.jdbc.Driver">
+        </property>
+        <property name="url"
+                          value="jdbc:mysql://localhost:3306/plataforma">
+        </property>
+        <property name="username" value="root"></property>
+        <property name="password" value="123456789"></property>
+    </bean>
+    
+    <bean id="entityFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="plataformaPU"/>
+        <property name="dataSource" ref="data"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect"/>
+            </bean>
+        </property>	
+	
+    </bean>       
+       
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityFactory"/>
+    </bean>
+	
+    <!-- permite gestionar las transacciones mediante anotaciones -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+                     
+    <context:annotation-config/>
+    
+    <context:component-scan base-package="modelo"/>
+</beans>

@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"></meta>
+
+        <title>TalenTIC - Educación digital</title>
+        <link rel="stylesheet" href="resources/css/estilosProfesor.css" type="text/css"/>
+        <link href="resources/css/menu.css" rel="stylesheet" type="text/css"/>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0"></meta>
+
+        <style>
+            .logos {    
+                color:#fff;
+                font-weight:bold;
+                background: #D20000;
+            }
+            .logotipo{
+                display: inline-block;
+                content: url(resources/img/elearning2.png); 
+                font-size: 3em; 
+
+            }            
+            .inicio{
+                display: inline-block;
+                content: url(resources/img/inicio2.png);
+                font-size: 3em;
+            }     
+            .cursos{
+                display: inline-block;
+                content: url(resources/img/cursos2.png);
+                font-size: 3em;
+            }               
+            .email{
+                display: inline-block;
+                content: url(resources/img/email2.png);
+                font-size: 3em;
+            }
+            .examen{
+                display: inline-block;
+                content: url(resources/img/test2.png);
+                font-size: 3em;
+            }    
+            .alumno{
+                display: inline-block;
+                content: url(resources/img/alumno2.png);
+                font-size: 3em;
+            }  
+            .esquina{
+                display: inline-block;
+                content: url(resources/img/esquina.png);
+                font-size: 3em;
+                position: absolute;
+                margin: -10px 0 0 -957px;
+            }                  
+
+            #menu ul li:focus ul, #menu ul li:active ul, #menu ul li a:active ul {
+                display: block;
+                position: relative;
+                background-color: #fff;
+                
+                
+            }
+            #menu ul li:focus span, #menu ul li:active span, #menu ul li a:active {
+                text-transform: uppercase;
+                font-weight: bold;                
+                background-color: #D20000;
+                border-bottom: solid 1px #D20000;
+                border-left: solid 8px #D20000;
+                border-right: solid 8px #D20000;
+            }
+            @font-face
+            {
+                font-family: "prueba";
+                src: url(resources/Brotherhood_Script.ttf);
+
+            }            
+        </style>
+    </h:head>
+
+    <h:body>
+
+        <section id="body" class="width">
+            <aside id="sidebar" class="column-left">
+                <br></br>
+                &#160;&#160;&#160;&#160;&#160;&#160;<i class="logotipo"></i>
+                <br></br>                
+                <header class="logos">
+                    <h1 ><a href="indexAdmin.xhtml">TalenTIC</a></h1>
+                    <h2 style="color: #000;font-size: 15px"><b>Gestión interna</b></h2>
+                </header>
+                <br></br><br></br>
+                <nav id="mainnav">
+                    <div id="menu">
+                        <ul>                        
+                            <li><a href="indexAdmin.xhtml" style="text-align: left"><i class="inicio"></i>&#160;&#160;Inicio</a></li>
+                            <li class="nivel1" tabindex="2"><span class="nivel1" style="text-align: left; text-transform: uppercase; color: #CCCCCC; font-weight: bold"><i class="cursos"></i>&#160;&#160;Cursos</span>
+                                <ul>
+                                    <li  class="primera">
+                                        <a href="showAltaCursos.xhtml">Nuevo Curso</a>
+                                    </li>
+                                    <li>
+                                        <a href="showNuevaEdicion.xhtml">Nueva Edicion</a>
+                                    </li>
+                                    <li>
+                                        <a href="showCrearExamenes.xhtml">Crear Examen</a>
+                                    </li>                                    
+                                    <li>
+                                        <a href="showResultadoCursosActivos.xhtml">Mostrar cursos activos</a>
+                                    </li>
+                                    <li>
+                                        <a href="showCursos.xhtml">Buscar cursos</a>
+                                    </li>                                    
+                                </ul>                         
+                            </li>
+                            <li class="nivel1" tabindex="3"><span class="nivel1" style="text-align: left; text-transform: uppercase; color: #CCCCCC; font-weight: bold"><i class="alumno"></i>&#160;&#160; Gestionar Alumnos</span>
+                                <ul>
+                                    <li  class="primera">
+                                        <a href="showRegistroUsuario.xhtml">Dar de alta nuevo alumno</a>
+                                    </li>
+                                    <li>
+                                        <a href="showAltaNuevoAlumno.xhtml">Matricular Alumno en curso</a>
+                                    </li>
+                                    <li>
+                                        <a href="showBajaAlumno.xhtml">Dar de baja alumno de curso</a>
+                                    </li>                                    
+                                </ul>                         
+                            </li>                           
+                            <li><a href="showemailP.xhtml" style="text-align: left"><i class="email"></i>&#160;&#160;Contactar</a></li>                      
+                        </ul>
+                    </div>
+                </nav>
+                
+                
+            </aside>
+
+            <section id="content" class="column-right">
+                <p style="float: left; color: #fff; font-family: prueba;font-size:50px; padding-top:   0px">&#160; “La educación es el arma más poderosa que puedes usar para cambiar el mundo” Nelson Mandela</p>
+                <header style="background-color: #2F2F2F;height: 25px;">  
+                    <div style="float: right">
+                        <h:form>                            
+                            <h:commandButton value="Salir" action="#{obtenerDatosSesion.cerrar()}" style="background-color: #D20000; border-radius: 5px; color: #FFFFFF;display: inline-block;font-weight: bold; padding: 8px 22px; font-size: 0.9em; letter-spacing: 1px; text-decoration: none; text-transform: uppercase;"/>
+                            <h:outputText value="&#160;" /><h:outputText value="&#160;" /><h:outputText value="&#160;" />
+                        </h:form>
+                    </div>
+                </header>
+                <article id="prueba" >
+                    <i class="esquina"></i>
+                    <br></br>
+                    <br></br>                    
+                    <ui:insert name="content" >
+                        <ui:include src="BienvenidoAdministrador.xhtml" />
+                    </ui:insert>
+                </article>
+                <footer class="clear">                
+                    <p>© 2016 - <a href="indexAdmin.xhtml">TalenTIC</a> la mejor educación digital</p>
+                </footer>
+            </section>
+            <div class="clear">
+            </div>
+        </section>      
+    </h:body>
+</html>

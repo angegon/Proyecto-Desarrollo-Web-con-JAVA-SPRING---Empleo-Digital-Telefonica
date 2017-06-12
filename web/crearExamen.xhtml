@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Crear Examen</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form>
+                <p:panel>
+                    <p:outputLabel value="Seleccione el curso del que desea crear un examen:" />&#160;&#160;&#160;
+                    <p:selectOneMenu value="#{crearExamen.idurso}">
+                        <f:selectItems value="#{crearExamen.cursos}" var="e" itemLabel="#{e.nombre}" itemValue="#{e.idcurso}" />
+                    </p:selectOneMenu>
+                    <br /> <br /> 
+                    <p:accordionPanel>
+                        <p:tab title="Pregunta  ">
+                            <h:panelGrid columns="2" cellpadding="10">
+                                <p:outputLabel  value="Introduzca texto de la pregunta:  " />
+                                <p:inputText value="#{crearExamen.pregunta}"/>   
+                                <p:outputLabel value="Introduzca texto de la respuesta 1:" />
+                                <p:inputText required="true" value="#{crearExamen.rp[0]}" />	                            
+                                <p:outputLabel value="Introduzca texto de la respuesta 2:" />
+                                <p:inputText required="true" value="#{crearExamen.rp[1]}"/>
+                                <p:outputLabel value="Introduzca texto de la respuesta 3:" />
+                                <p:inputText required="true" value="#{crearExamen.rp[2]}"/>
+                                <p:outputLabel value="Introduzca texto de la respuesta 4:" />
+                                <p:inputText required="true" value="#{crearExamen.rp[3]}"/>
+                            </h:panelGrid>
+                            <p:outputLabel value="Selecciona la respuesta correcta: " />
+                            <h:selectOneMenu value="#{crearExamen.correcta}">
+                                <f:selectItem  itemValue="1" itemLabel=" La respuesta 1 Correcta" />
+                                <f:selectItem  itemValue="2" itemLabel=" La respuesta 2 Correcta" />
+                                <f:selectItem  itemValue="3" itemLabel=" La respuesta 3 Correcta" />
+                                <f:selectItem  itemValue="4" itemLabel=" La respuesta 4 Correcta" />                            
+                            </h:selectOneMenu>  <br /> <br /> 
+                            <h:commandButton value="Guardar pregunta e introducir otra" action="#{crearExamen.insertarPreguntaYSegir()}" style="background-color: #D20000; border-radius: 5px; color: #FFFFFF;display: inline-block;font-weight: bold; padding: 8px 22px; font-size: 0.9em; letter-spacing: 1px; text-decoration: none; text-transform: uppercase"/>
+                            &#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                            <h:commandButton value="Guardar pregunta y finalizar" action="#{crearExamen.insertarPregunta()}" style="background-color: #D20000; border-radius: 5px; color: #FFFFFF;display: inline-block;font-weight: bold; padding: 8px 22px; font-size: 0.9em; letter-spacing: 1px; text-decoration: none; text-transform: uppercase"/>
+                        </p:tab>
+                    </p:accordionPanel>
+                </p:panel>
+            </h:form>
+        </ui:composition>
+    </h:body>
+</html>
+

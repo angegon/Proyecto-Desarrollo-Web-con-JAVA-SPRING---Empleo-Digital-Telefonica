@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Mis Cursos</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:dataTable border="1" value="#{misCursos.ma}" var="c" >
+                <f:facet name="header">
+                    <h:outputText value="Mis cursos" />
+                </f:facet>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nombre" />
+                    </f:facet>
+                    <h:commandLink value="#{c.idedicion.nombre}" action="#{misCursos.obtenerDatosCurso(c)}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Inicio" />
+                    </f:facet>
+                    <h:outputText value="#{c.idedicion.fechainicio}" />
+                </h:column>
+                <h:column>   
+                    <f:facet name="header">
+                        <h:outputText value="Fin" />
+                    </f:facet>
+                    <h:outputText value="#{c.idedicion.fechafin}" />
+                </h:column>  
+                <h:column>   
+                    <f:facet name="header">
+                        <h:outputText value="Estado" />
+                    </f:facet>
+                    <h:outputText value="" />
+                </h:column>
+                <h:column> 
+                    <f:facet name="header">
+                        <h:outputText value="Nota" />
+                    </f:facet>
+                    <h:outputText value="#{c.nota}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Examen" />
+                    </f:facet>
+                    <h:commandLink value="Realizar examen"  />
+                </h:column>
+            </h:dataTable>
+            <h:link outcome="BienvenidoAlumno.xhtml" value="Volver"/>
+        </h:form>
+    </h:body>    
+</html>

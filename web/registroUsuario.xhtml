@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">      >
+    <h:head>
+        <title>Registro de nuevos usuarios</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form>
+                <p:panel header="Alta nuevo usuario">
+                    <h:panelGrid columns="2" columnClasses="label, value" style="width: 50%;">
+                        <h:outputText value="Dni:" />
+                        <p:inputText id="Dni" value="#{registroUsuario.dni}" required="true"/>   
+                        <h:outputText value="Nombre:" />
+                        <p:inputText value="#{registroUsuario.nombre}" required="true" />
+                        <h:outputText value="Apellidos:" />
+                        <p:inputText  value="#{registroUsuario.apellidos}" required="true" />
+                        <h:outputText value="Contraseña:" />
+                        <p:password  value="#{registroUsuario.password}" required="true" />
+                        <h:outputText value="Email:" />
+                        <p:inputText  id="Email"  value="#{registroUsuario.email}" required="true" />                         
+                    </h:panelGrid>
+                    <h:commandButton value="Enviar"  action="#{registroUsuario.guardarUsuarioBBDD()}"  onclick="validarRegistroUsuario()" style="background-color: #D20000; border-radius: 5px; color: #FFFFFF;display: inline-block;font-weight: bold; padding: 8px 22px; font-size: 0.9em; letter-spacing: 1px; text-decoration: none; text-transform: uppercase"/>
+                </p:panel>    
+            </h:form>
+        </ui:composition>               
+    </h:body>
+</html>
+

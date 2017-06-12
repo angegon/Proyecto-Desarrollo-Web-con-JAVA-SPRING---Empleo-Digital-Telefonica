@@ -1,0 +1,61 @@
+
+
+#menu {  
+    text-align: center; 
+}
+#menu ul { 
+}
+#menu ul li.nivel1 { 
+
+}
+#menu ul li.primera { 
+    border-top: solid 1px #FFF;
+}
+#menu ul li a, #menu ul li span {
+    display: block;                              
+    padding: 8px;
+    position: relative;
+}
+a:active {
+    position: relative;
+}
+#menu ul li a:active {
+    background-color: #D20000;
+    color: #000;
+    border-bottom: solid 1px #D20000;
+    position: relative;
+}
+#menu ul li span.nivel1 {
+    display: block;
+}
+#menu ul li:hover span.nivel1 {
+    cursor: pointer;
+}
+#menu ul li ul {
+    display: none;
+}
+#menu ul li a:hover ul, #menu ul li a:active ul {
+    display: block;
+    position: relative;    
+}
+#menu ul li a:link:hover ul {display: none;
+}
+#menu ul li a:active:hover ul  {display: block;
+}
+#menu ul li ul li a {    
+    padding: 6px 0px 8px 0px;    
+}
+#menu ul li ul li a:hover {
+    position: relative;
+    text-decoration: underline;
+    
+}
+#menu ul li ul li.primera {
+    border-top: none;
+}
+table.falsa {
+    border-collapse:collapse;
+    border:0px;
+    float: left;
+    position: relative;
+}

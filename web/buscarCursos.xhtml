@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"> 
+    <h:head>
+        <title>Buscar Cursos</title>
+        <style>
+            .show{
+                display: compact;
+            }
+            .hide{
+                display: none;
+            }
+        </style>
+    </h:head>  
+    <ui:composition> 
+        <h:body>
+            <h:form>
+                <p:panel>
+                    <h:outputLabel for="buscar" value="Buscar cursos por nombre: " />
+                    <p:inputText id="buscar" value="#{buscarCursos.curso}" /><br />
+                    <h:commandButton value="Buscar" action="#{buscarCursos.obtenerCursos()}" style="background-color: #D20000; border-radius: 5px; color: #FFFFFF;display: inline-block;font-weight: bold; padding: 8px 22px; font-size: 0.9em; letter-spacing: 1px; text-decoration: none; text-transform: uppercase"/>
+                </p:panel>
+                <p:dataTable id="tab" value="#{buscarCursos.cursos}" var="c"  styleClass="#{buscarCursos.mostrar?'show':'hide'}" >
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Curso" />
+                        </f:facet>
+                        <h:outputText value="#{c.idcursoedicion}" />                         
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Profesor"/>
+                        </f:facet>
+                        <h:outputText value="#{c.idprofesor.nombre}"  />                          
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Descripcion"/>
+                        </f:facet>
+                        <h:outputText value="#{c.idcurso.descripcion}"  />                          
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Activo"/>
+                        </f:facet>
+                        <h:outputText value="#{(misCursos.fechaHoy>c.fechafin)?'Inactivo':'Activo'}" />
+                        <h:outputText  />                          
+                    </p:column>
+                </p:dataTable> 
+            </h:form> 
+        </h:body>
+    </ui:composition>
+</html>
+

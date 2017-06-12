@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Mis Cursos</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <h:form>
+                <p:dataTable  value="#{misCursos.ma}" var="c" >
+                    <f:facet name="header">
+                        <h:outputText value="Mis cursos" />
+                    </f:facet>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nombre" />
+                        </f:facet>
+                        <h:commandLink value="#{c.idedicion.nombre}" action="#{misCursos.obtenerDatosCurso(c)}" />    
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Inicio" />
+                        </f:facet>
+                        <h:outputText value="#{c.idedicion.fechainicio}" />
+                    </p:column>
+                    <p:column>   
+                        <f:facet name="header">
+                            <h:outputText value="Fin" />
+                        </f:facet>
+                        <h:outputText value="#{c.idedicion.fechafin}" />
+                    </p:column>          
+                    <p:column>   
+                        <f:facet name="header">
+                            <h:outputText value="Estado" />
+                        </f:facet>
+                        <h:outputText value="#{(misCursos.fechaHoy>c.idedicion.fechafin)?'Inactivo':'Activo'}" />
+                    </p:column>
+                    <p:column>   
+                        <f:facet name="header">
+                            <h:outputText value="Examen" />
+                        </f:facet>
+                        <h:commandButton value="Realizar test" action="#{realizarExamen.cargarExamen(c.idedicion.idcurso)}" rendered="#{(c.nota==null)?true:false}" />
+                    </p:column>
+                    <p:column>   
+                        <f:facet name="header">
+                            <h:outputText value="Nota" />
+                        </f:facet>
+                        <h:outputText value="#{c.nota}" />
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </ui:composition>
+    </h:body>    
+</html>
